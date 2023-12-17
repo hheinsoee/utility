@@ -1,4 +1,4 @@
-const { safeSql } = require("../helper/connectSQL");
+const { safeSql } = require("./connectSQL");
 
 function SELECT(table, filter, cb) {
   var filter_ = [];
