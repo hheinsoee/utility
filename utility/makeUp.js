@@ -7,7 +7,7 @@ export const makeUp = (data, pretty, isNull = null) => {
       //   d[x] = null;
       // }
 
-      if (d[x] !== null) {
+      if (d[x] !== null && d[x] !== undefined) {
         prettyData[x] = d[x];
       } else if (isNull) {
         prettyData[x] = null;
