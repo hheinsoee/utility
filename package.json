@@ -1,10 +1,10 @@
 {
-  "name": "utility",
+  "name": "@hheinsoee/utility",
   "version": "1.0.0",
   "description": "my utility",
   "main": "index.js",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@hheinsoee"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
