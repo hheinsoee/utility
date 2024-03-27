@@ -26,11 +26,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          scope: '@hheinsoee'
+          registry-url: "https://registry.npmjs.org"
+          scope: "@hheinsoee"
       - name: Install Dependencies
         run: npm install
 
       - name: Publish to npm
         run: npm publish
-        env: 
+        env:
+          NPM_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
