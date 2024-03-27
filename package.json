@@ -6,9 +6,6 @@
   "scripts": {
       "start": "node index.js"
   },
-  "files": [
-      "index.js"
-  ],
   "repository": {
       "type": "git",
       "url": "https://github.com/hheinsoee/utility.git"
