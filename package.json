@@ -1,18 +1,30 @@
 {
-  "name": "@hheinsoee/ez-sql",
+  "name": "@hheinsoee/utility",
   "version": "1.0.1",
-  "description": "my utility",
+  "description": "📦 npm package utility",
   "main": "index.js",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "node index.js"
+  },
+  "files": [
+      "index.js"
+  ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/hheinsoee/utility.git"
   },
   "keywords": [
-    "utility"
+      "utility",
+      "sql"
   ],
-  "author": "heinsoe",
-  "license": "ISC"
+  "author": {
+      "name": "Hein Soe",
+      "email": "hheinsoee@gmail.com",
+      "url": "https://heinsoe.com"
+  },
+  "license": "MIT",
+  "bugs": {
+      "url": "https://github.com/hheinsoee/utility/issues"
+  },
+  "homepage": "https://github.com/hheinsoee/utility/issues#readme"
 }
