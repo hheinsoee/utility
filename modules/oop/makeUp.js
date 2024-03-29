@@ -2,11 +2,6 @@ export const makeUp = (data, pretty, isNull = null) => {
   function mUp(d) {
     const prettyData = {};
     pretty.forEach((x) => {
-      // if (d[x] && d[x] !== "null") { prettyData[x] = d[x] }
-      // if (isNull && (d[x] == "undefined" || d[x] == null)) {
-      //   d[x] = null;
-      // }
-
       if (d[x] !== null && d[x] !== undefined) {
         prettyData[x] = d[x];
       } else if (isNull) {
@@ -29,7 +24,7 @@ export const isRequired = (data, need) => {
   function mUp() {
     const required = [];
     need.forEach((x) => {
-      if (!data[x]) {
+      if (data[x] == null) {
         required.push(x);
       }
     });
