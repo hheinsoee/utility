@@ -1,3 +1,3 @@
-export function removeHTMLTags(html) {
+export function noHtml(html) {
   return html.replace(/<[^>]*>/g, "");
 }

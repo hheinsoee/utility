@@ -9,3 +9,15 @@ export function findDuplicates(arr) {
 export const search = (array, key, words) => {
   return array[key].toString().toLowerCase().includes(words.toLowerCase());
 };
+
+export function makeFresh({ old, fresh }) {
+  const index = (old || []).findIndex((x) => x.id === fresh.id);
+  // console.log({ old, fresh, index });
+  if (index !== -1) {
+    const newData = [...old];
+    newData[index] = fresh;
+    return newData;
+  } else {
+    return [fresh, ...old];
+  }
+}

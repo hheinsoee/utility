@@ -40,3 +40,15 @@ export const isRequired = (data, need) => {
 
   return mUp(data);
 };
+
+export function makeFresh({ old, fresh }) {
+  const index = (old || []).findIndex((x) => x.id === fresh.id);
+  // console.log({ old, fresh, index });
+  if (index !== -1) {
+    const newData = [...old];
+    newData[index] = fresh;
+    return newData;
+  } else {
+    return [fresh, ...old];
+  }
+}
