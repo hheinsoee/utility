@@ -1,4 +1,10 @@
-export function SELECT({ table, where }) {
+/**
+ * @param {Object} _ref
+ * @param {String} _ref.table
+ * @param {Object} _ref.where 
+ * @returns {Object}
+ */
+export function SELECT({ table, where={} }) {
   var filter_ = [];
   if (Object.keys(where).length > 0) {
     Object.keys(where).map((key) => {
@@ -9,7 +15,12 @@ export function SELECT({ table, where }) {
   var sql = `SELECT * FROM ${table} ${filter__}`;
   return { query: sql, data: {} };
 }
-
+/**
+ * @param {Object} _ref
+ * @param {String} _ref.table
+ * @param {Object} _ref.data  
+ * @returns {Object}
+ */
 export function INSERT({ table, data }) {
   if (Array.isArray(data)) {
     const placeholders = Array(data[0] ? Object.keys(data[0]).length : 0)
@@ -25,7 +36,12 @@ export function INSERT({ table, data }) {
     return { query: q, data: data };
   }
 }
-
+/**
+ * @param {Object} _ref
+ * @param {String} _ref.table
+ * @param {Object} _ref.data  
+ * @returns {Object}
+ */
 export function UPDATE({ table, data }) {
   var dArr = [];
   var dataArr = [];
@@ -40,7 +56,12 @@ export function UPDATE({ table, data }) {
   var q = `UPDATE ${table} SET ${uData} WHERE id = ?`;
   return { query: q, data: dataArr };
 }
-
+/**
+ * @param {Object} _ref
+ * @param {String} _ref.table
+ * @param {Object} _ref.where  
+ * @returns {Object}
+ */
 export function DELETE({ table, where }) {
   if (where) {
     var sqlWhere = Object.keys(where).map((k) => {
