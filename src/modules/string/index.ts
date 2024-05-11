@@ -1,4 +1,4 @@
-export function snakeToTitleCase(str) {
+export function snakeToTitleCase(str: string) {
   return str
     .split("_")
     .map(function (word) {
@@ -7,7 +7,7 @@ export function snakeToTitleCase(str) {
     .join(" ");
 }
 
-export function snakeToCamel(str) {
+export function snakeToCamel(str: string) {
   return str.replace(/_([a-z])/g, function (match, group1) {
     return group1.toUpperCase();
   });

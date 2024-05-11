@@ -1,13 +1,7 @@
-/**
- * @param {Object} _ref
- * @param {String} _ref.table
- * @param {Object} _ref.where 
- * @returns {Object}
- */
-export function SELECT({ table, where={} }) {
-  var filter_ = [];
+export function SELECT({ table, where }: { table: string; where: any }) {
+  var filter_: string[] = [];
   if (Object.keys(where).length > 0) {
-    Object.keys(where).map((key) => {
+    Object.keys(where).map(([key]) => {
       return filter_.push(`${key} = '${where[key]}'`);
     });
   }
@@ -15,13 +9,8 @@ export function SELECT({ table, where={} }) {
   var sql = `SELECT * FROM ${table} ${filter__}`;
   return { query: sql, data: {} };
 }
-/**
- * @param {Object} _ref
- * @param {String} _ref.table
- * @param {Object} _ref.data  
- * @returns {Object}
- */
-export function INSERT({ table, data }) {
+
+export function INSERT({ table, data }: { table: string; data: any | any[] }) {
   if (Array.isArray(data)) {
     const placeholders = Array(data[0] ? Object.keys(data[0]).length : 0)
       .fill("?")
@@ -36,15 +25,10 @@ export function INSERT({ table, data }) {
     return { query: q, data: data };
   }
 }
-/**
- * @param {Object} _ref
- * @param {String} _ref.table
- * @param {Object} _ref.data  
- * @returns {Object}
- */
-export function UPDATE({ table, data }) {
-  var dArr = [];
-  var dataArr = [];
+
+export function UPDATE({ table, data }: { table: string; data: any | any[] }) {
+  var dArr: string[] = [];
+  var dataArr: string[] = [];
   for (let key in data) {
     if (key !== "id") {
       dArr.push(`${key} = ?`);
@@ -56,13 +40,8 @@ export function UPDATE({ table, data }) {
   var q = `UPDATE ${table} SET ${uData} WHERE id = ?`;
   return { query: q, data: dataArr };
 }
-/**
- * @param {Object} _ref
- * @param {String} _ref.table
- * @param {Object} _ref.where  
- * @returns {Object}
- */
-export function DELETE({ table, where }) {
+
+export function DELETE({ table, where }: { table: string; where: any }) {
   if (where) {
     var sqlWhere = Object.keys(where).map((k) => {
       return `${k} = ?`;

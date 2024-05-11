@@ -1,39 +1,37 @@
 {
-    "name": "@hheinsoee/utility",
-    "version": "1.0.2",
-    "description": "📦 npm package utility",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
-    "type": "module",
-    "source": "src/index.js",
-    "scripts": {
-        "build:dev": "rollup -c --environment NODE_ENV:development",
-        "build": "rollup -c --environment NODE_ENV:production"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/hheinsoee/utility.git"
-    },
-    "keywords": [
-        "utility",
-        "sql"
-    ],
-    "author": {
-        "name": "Hein Soe",
-        "email": "hheinsoee@gmail.com",
-        "url": "https://heinsoe.com"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/hheinsoee/utility/issues"
-    },
-    "homepage": "https://github.com/hheinsoee/utility/issues#readme",
-    "devDependencies": {
-        "@babel/core": "^7.24.4",
-        "@babel/preset-env": "^7.24.4",
-        "@rollup/plugin-babel": "^6.0.4",
-        "rollup": "^4.9.0",
-        "rollup-plugin-terser": "^7.0.2"
-    },
-    "dependencies": {}
+  "name": "@hheinsoee/utility",
+  "version": "1.0.6",
+  "description": "📦 npm package utility",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/mjs/index.js"
+  },
+  "type": "module",
+  "source": "src/index.ts",
+  "scripts": {
+    "build:dev": "rollup -c --environment NODE_ENV:development",
+    "build": "rollup -c --environment NODE_ENV:production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hheinsoee/utility.git"
+  },
+  "keywords": [
+    "utility",
+    "sql"
+  ],
+  "author": {
+    "name": "Hein Soe",
+    "email": "hheinsoee@gmail.com",
+    "url": "https://heinsoe.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.17.2",
+    "rollup-plugin-typescript2": "^0.36.0"
+  }
 }

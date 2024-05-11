@@ -1,36 +1,28 @@
-import babel from "@rollup/plugin-babel";
-import { terser } from "rollup-plugin-terser";
+import typescript from 'rollup-plugin-typescript2';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
-const devMode = true;
-console.log(`${devMode ? "development" : "production"} mode bundle`);
-
-export default [
-  {
-    input: "src/index.js",
-    output: [
-      {
-        file: "dist/index.js",
-        format: "cjs",
-      },
-      {
-        file: "dist/index.mjs",
-        format: "es",
-      },
-    ],
-    plugins: [
-      // terser({
-      //   format: {
-      //     // Disable prettification
-      //     beautify: false,
-      //     // Disable comments
-      //     comments: false,
-      //     // Other terser options...
-      //   },
-      // }),
-      babel({
-        babelHelpers: "bundled",
-        presets: ["@babel/preset-env"],
-      }),
-    ],
-  },
-];
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: 'dist/cjs/index.js',
+      format: 'cjs',
+      exports: 'auto',
+      sourcemap: true, 
+    },
+    {
+      file: 'dist/mjs/index.js',
+      format: 'esm',
+      sourcemap: true,
+    }
+  ],
+  plugins: [
+    typescript({
+      declaration: true,
+      declarationDir: 'dist/types',
+    }),
+    nodeResolve(),
+    commonjs()
+  ]
+};
