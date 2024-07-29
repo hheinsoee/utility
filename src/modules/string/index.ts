@@ -12,3 +12,11 @@ export function snakeToCamel(str: string) {
     return group1.toUpperCase();
   });
 }
+
+export function capitalize(text: string) {
+  var texts: string[] = [];
+  text.split(" ").map((w) => {
+    texts.push(w.charAt(0).toUpperCase() + w.slice(1));
+  });
+  return texts.join(" ");
+}
