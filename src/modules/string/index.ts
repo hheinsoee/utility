@@ -20,3 +20,8 @@ export function capitalize(text: string) {
   });
   return texts.join(" ");
 }
+export function getOrdinal(num: number) {
+  const suffixes = ["th", "st", "nd", "rd"];
+  const v = num % 100;
+  return num + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
+}
