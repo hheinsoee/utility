@@ -1,6 +1,6 @@
 {
   "name": "@hheinsoee/utility",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "📦 npm package utility",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",

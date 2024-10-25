@@ -25,3 +25,15 @@ export function getOrdinal(num: number) {
   const v = num % 100;
   return num + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
 }
+export const numberFormat = (x: number) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+export function convertToSlug(sentence: string): string {
+  return sentence
+    .toLowerCase()                  // Convert to lowercase
+    .trim()                         // Trim whitespace from both sides
+    .replace(/\s+/g, '-')           // Replace spaces with hyphens
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars (except hyphens)
+    .replace(/\--+/g, '-')          // Replace multiple hyphens with a single one
+    .replace(/^-+|-+$/g, '');       // Trim hyphens from the start and end
+}

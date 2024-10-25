@@ -14,4 +14,6 @@ export {
   snakeToCamel,
   capitalize,
   getOrdinal,
+  numberFormat,
+  convertToSlug,
 } from "./modules/string/index";
